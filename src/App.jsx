@@ -6,19 +6,23 @@ const App = () => {
 
   return (
     <div className="container">
-      <div className='button-div'>
-        <button type="button" onclick="alert('Button')">This is a button</button>
-      </div>
+
+      <h1 className="title">Wevote</h1>
+      
 
       <div className='icon-div'>
         <img src="public\images\voting-icon.png" alt="voting icon"/>
       </div>
 
-      <div className='form-div'>
-        <form>
-          <label for="fname">Insert text</label>
-          <input type="text" id="fname" name="fname"/>
+      <div className='enter-code-form'>
+        <form className='join-with-code'>
+          <label id="join-with-code-text" for="fname">Join With Code:</label>
+          <input type="text" id="code" name="code"/>
         </form>
+      </div>
+
+      <div className='new-election-button'>
+        <button type="button" onclick="alert('Button')">New Election</button>
       </div>
       
     </div>
