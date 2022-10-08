@@ -40,3 +40,34 @@
 button {
   font-size: calc(10px + 2vmin);
 }
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  border: 1px red dotted;
+}
+
+
+
+.new-election-button {
+  padding: 25px;
+}
+
+
+.enter-code-form {
+  padding: 10px;
+  
+}
+
+.join-with-code {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+}
+
+#join-with-code-text {
+  padding-bottom: 10px;
+}

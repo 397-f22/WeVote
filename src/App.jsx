@@ -1,29 +1,38 @@
 import { useState } from 'react';
 import './App.css';
+import { BrowserRouter, Routes, Route, useParams } from "react-router-dom";
+import Voting from './components/Voting';
+import Homepage from './components/homepage.jsx'
+
+const data = [
+  {
+    position: "President",
+    candidates: ["Sara", "Josh"]
+  }
+]
 
 const App = () => {
-  const [count, setCount] = useState(0);
-
   return (
-    <div className="container">
-      <div className='button-div'>
-        <button type="button" onclick="alert('Button')">This is a button</button>
-      </div>
+    <div className="container">      
 
-      <div className='icon-div'>
-        <img src="public\images\voting-icon.png" alt="voting icon"/>
-      </div>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={
+            <div>
+              <Homepage />
+            </div>
+          }>
 
-      <div className='form-div'>
-        <form>
-          <label for="fname">Insert text</label>
-          <input type="text" id="fname" name="fname"/>
-        </form>
-      </div>
-      
+          </Route>
+          <Route path="/voting" element={
+            <div>
+              <Voting title={data[0]} />
+            </div>
+          } />
+        </Routes>
+      </BrowserRouter>
+
     </div>
-
-    
   ); 
 };
 
