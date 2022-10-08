@@ -6,7 +6,13 @@ const App = () => {
 
   return (
     <div className="container">
-      <h1>WEVOTE</h1>
+      <h2>
+      <button type="button" onclick="alert('Button')">This is a button</button>
+      <form>
+      <label for="fname">Insert text</label>
+      <input type="text" id="fname" name="fname">
+        </form>
+      </h2>
     </div>
   ); 
 };
