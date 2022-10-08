@@ -1,4 +1,9 @@
-const Homepage = () => ( 
+const Homepage = () => {
+  const goToVoting = () => {
+    window.location.href = "/voting";
+  }
+
+  return( 
     
     <div className="container">
 
@@ -13,6 +18,7 @@ const Homepage = () => (
         <form className='join-with-code'>
           <label id="join-with-code-text" for="fname">Join With Code:</label>
           <input type="text" id="code" name="code"/>
+          <button type="button" onClick={goToVoting}>Join</button>
         </form>
       </div>
 
@@ -22,5 +28,10 @@ const Homepage = () => (
       
     </div>  
 );
+}
+
+  
+
+
 
 export default Homepage;
