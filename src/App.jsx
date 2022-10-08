@@ -8,7 +8,7 @@ const App = () => {
     <div className="container">
       <h1>WEVOTE</h1>
     </div>
-  );
+  ); 
 };
 
 export default App;
