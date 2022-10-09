@@ -31,17 +31,20 @@ const CreateElection = (data) => {
                     <input type="text" name="position"/>
                 </div>
 
-                <div className='createElectionField'>
-                    <label className="CreateElectionFieldsText">Candidate:</label>
-                    <input type="text" name="candidate"/>
+                <div className="createPositionField">
+                    <div className='createElectionField'>
+                        <label className="CreateElectionFieldsText">Candidate:</label>
+                        <input type="text" name="candidate"/>
+                    </div>
+
+                    <div className='createElectionField'>
+                        <label className="CreateElectionFieldsText">Candidate:</label>
+                        <input type="text" name="candidate"/>
+                    </div>
+
+                    <button className="add-candidate m-1" onClick={AddCandidate}>Add Candidate</button>
                 </div>
 
-                <div className='createElectionField'>
-                    <label className="CreateElectionFieldsText">Candidate:</label>
-                    <input type="text" name="candidate"/>
-                </div>
-
-                <button className="add-candidate m-1" onClick={AddCandidate}>Add Candidate</button>
                 <button className="add-position m-1" >Add Position</button>
                 <button className="start-election m-1">Start Election</button>
             </form>

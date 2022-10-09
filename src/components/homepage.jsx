@@ -3,12 +3,14 @@ const Homepage = () => {
     window.location.href = "/voting";
   }
 
+  const goToElection = () => {
+    window.location.href = "/create-election";
+  }
+
   return( 
-    
     <div className="container">
 
       <h1 className="title">WeVote</h1>
-      
 
       <div className='icon-div'>
         <img src="public\images\voting-icon.png" alt="voting icon"/>
@@ -23,7 +25,7 @@ const Homepage = () => {
       </div>
 
       <div className='new-election-button'>
-        <button type="button" onclick="alert('Button')">New Election</button>
+        <button type="button" onClick={goToElection}>New Election</button>
       </div>
       
     </div>  
