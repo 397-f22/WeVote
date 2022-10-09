@@ -7,9 +7,11 @@ import { Button } from "@mui/material";
 
 const CreateElection = (data) => {
     console.log(data);
-    const handleChange = (event) => {
 
-    };
+    const startElection = (event) => {
+        event.preventDefault(); // TODO: fix this!!
+        window.location.href = "/result";
+    }
 
     const AddCandidate = () => {
         console.log("added candidate")
@@ -46,7 +48,7 @@ const CreateElection = (data) => {
                 </div>
 
                 <button className="add-position m-1" >Add Position</button>
-                <button className="start-election m-1">Start Election</button>
+                <button className="start-election m-1" onClick={startElection}>Start Election</button>
             </form>
             
         </div>

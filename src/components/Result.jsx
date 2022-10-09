@@ -21,6 +21,7 @@ const Result = (data) => {
     return (    
         <div>
             <div>Total Votes: {interval}</div>
+            <div className="electionCode">Code: 1316</div>
 
             <button onClick={handleChange} >End Election</button>
 
