@@ -7,8 +7,8 @@ import { Button } from "@mui/material";
 
 const Voting = (data) => {
     console.log(data);
-    const handleChange = (event) => {
-
+    const goToResult = (event) => {
+        window.location.href = "/result";
     };
 
     return (    
@@ -44,7 +44,7 @@ const Voting = (data) => {
                         border: "2px solid !important",
                         borderRadius: "20px!important",
                     }}
-                    onClick={handleChange}> Cast Vote </Button>
+                    onClick={goToResult}> Cast Vote </Button>
             </div>
 
             

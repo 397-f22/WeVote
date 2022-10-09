@@ -2,7 +2,8 @@ import { useState } from 'react';
 import './App.css';
 import { BrowserRouter, Routes, Route, useParams } from "react-router-dom";
 import Voting from './components/Voting';
-import Homepage from './components/Homepage.jsx'
+import Homepage from './components/Homepage.jsx';
+import Result from './components/Result.jsx';
 import CreateElection from './components/CreateElection.jsx';
 
 const data = [
@@ -36,6 +37,12 @@ const App = () => {
               <CreateElection />
             </div>
           } />
+
+          <Route path="/result" element={
+            <div>
+              <Result />
+            </div>
+          }/>
 
         </Routes>
       </BrowserRouter>
