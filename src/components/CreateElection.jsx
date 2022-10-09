@@ -41,7 +41,9 @@ const CreateElection = (data) => {
                     <input type="text" name="candidate"/>
                 </div>
 
-                <button onClick={AddCandidate}>+</button>
+                <button className="add-candidate m-1" onClick={AddCandidate}>Add Candidate</button>
+                <button className="add-position m-1" >Add Position</button>
+                <button className="start-election m-1">Start Election</button>
             </form>
             
         </div>
