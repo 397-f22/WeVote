@@ -71,3 +71,12 @@ button {
 #join-with-code-text {
   padding-bottom: 10px;
 }
+
+.createElectionFields {
+  display: flex;
+  flex-direction: column;
+}
+
+.createElectionField {
+  padding: 10px;
+}

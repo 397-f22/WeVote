@@ -2,7 +2,8 @@ import { useState } from 'react';
 import './App.css';
 import { BrowserRouter, Routes, Route, useParams } from "react-router-dom";
 import Voting from './components/Voting';
-import Homepage from './components/homepage.jsx'
+import Homepage from './components/Homepage.jsx'
+import CreateElection from './components/CreateElection.jsx';
 
 const data = [
   {
@@ -29,6 +30,13 @@ const App = () => {
               <Voting title={data[0]} />
             </div>
           } />
+
+          <Route path="/create-election" element={
+            <div>
+              <CreateElection />
+            </div>
+          } />
+
         </Routes>
       </BrowserRouter>
 
