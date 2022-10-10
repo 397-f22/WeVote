@@ -2,6 +2,11 @@
   text-align: center;
 }
 
+#root{
+  background-color: lightgreen;
+  min-height: 680px;
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -114,4 +119,27 @@ button {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.electionCode {
+  background-color: white;
+  border-radius: 18px;
+  text-align: center;
+  font-weight: 600;
+  padding: 11px;
+  margin-bottom: 20px
+}
+
+.vote-count{
+  margin-top: 20px;
+}
+
+.winning{
+  background-color: black;
+  color: white;
+  padding: 20px;
+  border-radius: 20px;
+  font-weight: 600;
+  font-size: 22px;
+  margin-top: 20px;
 }

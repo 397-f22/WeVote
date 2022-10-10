@@ -4,7 +4,8 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import FormLabel from '@mui/material/FormLabel';
 import Radio from '@mui/material/Radio';
 import { Button } from "@mui/material";
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const Result = (data) => {
     const [voteCount, setVoteCount] = useState(0);
@@ -14,18 +15,23 @@ const Result = (data) => {
         setElectionRunning(false);
     };
 
-    const interval = setInterval(() => setVoteCount(vc => vc + 1), 10000)
 
-    console.log(interval);
+    useEffect(() => {
+        const interval = setInterval(() => setVoteCount(vc => vc + 1), 1000);
+        return () => clearInterval(interval);
+    }, []);
 
     return (    
-        <div>
-            <div>Total Votes: {interval}</div>
+        <div className="container">
+            <h1>WeVote</h1> 
+            
             <div className="electionCode">Code: 1316</div>
 
-            <button onClick={handleChange} >End Election</button>
+            <button type="button" className="btn btn-danger btn-rounded" onClick={handleChange}>End Election</button>
 
-            <div>
+            <div className="vote-count">Total Votes: {voteCount}</div>
+
+            <div className="winning">
                 {electionRunning ? "" : "winner is Sara"}
             </div>
         </div>
