@@ -17,6 +17,12 @@ const CreateElection = (data) => {
         </div>
     }
 
+    const GoToResult = (event) => {
+        event.preventDefault();
+        window.location.href = "/result";
+        
+    }
+
     return (    
         <div>
             <h1>WeVote</h1> 
@@ -38,11 +44,11 @@ const CreateElection = (data) => {
                         <input type="text" name="candidate"/>
                     </div>
 
-                    <button className="add-candidate m-1" onClick={AddCandidate}>Add Candidate</button>
+                    <button className="btn btn-dark btn-rounded btn-sm" style={{marginBottom: "20px"}} onClick={AddCandidate}>Add Candidate</button>
                 </div>
 
-                <button className="add-position m-1" >Add Position</button>
-                <button className="start-election m-1">Start Election</button>
+                <button className="btn btn-dark btn-rounded" style={{paddingRight:"100px", paddingLeft:"100px", marginBottom: "20px"}} >Add Position</button>
+                <button className="btn btn-success btn-rounded btn-lg" onClick={GoToResult}>Start Election</button>
             </form>
             
         </div>
