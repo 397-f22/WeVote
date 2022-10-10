@@ -27,8 +27,8 @@ const CreateElection = (data) => {
         <div className="create-election-container">
             <WeVote style={{marginBottom: "20px"}}/>
             
-            <form className='create-election-fields'>
-                <div className='position'>
+            <form className="create-election-fields">
+                <div className="position">
                     <label className="text">Position: </label>
                     <input type="text" name="position"/>
                 </div>

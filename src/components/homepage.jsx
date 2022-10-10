@@ -13,16 +13,14 @@ const Homepage = () => {
 
   return( 
     <div className="container">
-
       <WeVote/>
 
-      <div className='icon-div'>
-        {/* <img src="public\images\voting-icon.png" alt="voting icon"/> */}
+      <div className="icon-div">
         <img src="https://i.imgur.com/dacVkoE.png" alt="voting icon"/>
       </div>
 
-      <div className='enter-code-form'>
-        <form className='join-with-code'>
+      <div className="enter-code-form">
+        <form className="join-with-code">
 
           <div className="join-with-code-field">
             <label id="join-with-code-text" for="fname">Join With Code:</label>
