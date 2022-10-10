@@ -45,8 +45,9 @@ button {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-top: 50px;
 
-  border: 1px red dotted;
+  /* border: 1px red dotted; */
 }
 
 
@@ -75,24 +76,42 @@ button {
 .create-election-fields {
   display: flex;
   flex-direction: column;
+  align-items: center;
+
+  border: 1px red dotted;
 }
 
 .create-election-position {
   padding: 10px;
 }
 
-.create-election-candidate-group {
-  margin-left: 20px;
-}
 
 .create-election-candidate {
   padding: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 .create-election-position-text {
   font-size: 18px;
+  font-weight: 600;
 }
 
 .create-election-candidate-text {
-  font-size: 16px;
+  font-size: 14px;
+}
+
+.icon-div{
+  max-width: 400px;
+}
+
+.icon-div img{
+  width: 100%;
+}
+
+.join-with-code-field {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }

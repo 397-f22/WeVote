@@ -22,9 +22,15 @@ const Homepage = () => {
 
       <div className='enter-code-form'>
         <form className='join-with-code'>
-          <label id="join-with-code-text" for="fname">Join With Code:</label>
-          <input type="text" id="code" name="code"/>
-          <button type="button" className="btn btn-dark btn-rounded btn-lg" style={{paddingRight:"100px", paddingLeft:"100px"}} onClick={goToVoting}>Join</button>
+
+          <div className="join-with-code-field">
+            <label id="join-with-code-text" for="fname">Join With Code:</label>
+            <input type="text" id="code" name="code"/>
+          </div>
+
+          <div className="join-with-code-btn" style={{marginTop: "10px"}}>
+            <button type="button" className="btn btn-dark btn-rounded btn-lg" style={{paddingRight:"100px", paddingLeft:"100px"}} onClick={goToVoting}>Join</button>
+          </div>
         </form>
       </div>
 

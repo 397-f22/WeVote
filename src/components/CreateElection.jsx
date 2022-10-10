@@ -24,7 +24,7 @@ const CreateElection = (data) => {
     }
 
     return (    
-        <div>
+        <div className="create-election-container">
             <h1>WeVote</h1> 
             {/* ^^ replace with a navbar (topbar) that is consistents throughout pages */}
             <form className='create-election-fields'>
