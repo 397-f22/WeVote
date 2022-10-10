@@ -50,8 +50,7 @@ button {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 50px;
-
+  padding-top: 50px;
   /* border: 1px red dotted; */
 }
 
