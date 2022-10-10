@@ -17,8 +17,10 @@ const Result = (data) => {
 
 
     useEffect(() => {
-        const interval = setInterval(() => setVoteCount(vc => vc + 1), 1000);
-        return () => clearInterval(interval);
+        if (electionRunning) {
+            const interval = setInterval(() => setVoteCount(vc => vc + 1), 1000);
+            return () => clearInterval(interval);
+        }
     }, []);
 
     return (    
@@ -27,13 +29,9 @@ const Result = (data) => {
             
             <div className="electionCode">Code: 1316</div>
 
-            <button type="button" className="btn btn-danger btn-rounded" onClick={handleChange}>End Election</button>
+            {electionRunning ? <button type="button" className="btn btn-danger btn-rounded" onClick={handleChange}>End Election</button> : <div className="winning">Winner is Sara</div>}
 
-            <div className="vote-count">Total Votes: {voteCount}</div>
-
-            <div className="winning">
-                {electionRunning ? "" : "winner is Sara"}
-            </div>
+            <div className="vote-count">Total Votes: {voteCount}</div>            
         </div>
     );
 }
