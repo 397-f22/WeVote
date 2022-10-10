@@ -1,4 +1,5 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
+import WeVote from './WeVote';
 
 
 const Homepage = () => {
@@ -13,11 +14,11 @@ const Homepage = () => {
   return( 
     <div className="container">
 
-      <h1 className="title">WeVote</h1>
+      <WeVote/>
 
       <div className='icon-div'>
         {/* <img src="public\images\voting-icon.png" alt="voting icon"/> */}
-        <img src="https://i.imgur.com/9QvZ2eB.png" alt="voting icon"/>
+        <img src="https://i.imgur.com/dacVkoE.png" alt="voting icon"/>
       </div>
 
       <div className='enter-code-form'>

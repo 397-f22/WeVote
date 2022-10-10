@@ -4,6 +4,7 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import FormLabel from '@mui/material/FormLabel';
 import Radio from '@mui/material/Radio';
 import { Button } from "@mui/material";
+import WeVote from './WeVote';
 
 const CreateElection = (data) => {
     console.log(data);
@@ -20,27 +21,26 @@ const CreateElection = (data) => {
     const GoToResult = (event) => {
         event.preventDefault();
         window.location.href = "/result";
-        
     }
 
     return (    
         <div className="create-election-container">
-            <h1>WeVote</h1> 
-            {/* ^^ replace with a navbar (topbar) that is consistents throughout pages */}
+            <WeVote style={{marginBottom: "20px"}}/>
+            
             <form className='create-election-fields'>
-                <div className='create-election-position'>
-                    <label className="create-election-position-text">Position: </label>
+                <div className='position'>
+                    <label className="text">Position: </label>
                     <input type="text" name="position"/>
                 </div>
 
-                <div className="create-election-candidate-group">
-                    <div className='create-election-candidate'>
-                        <label className="create-election-candidate-text">Candidate:</label>
+                <div className="candidate-group">
+                    <div className="candidate">
+                        <label className="text">Candidate:</label>
                         <input type="text" name="candidate"/>
                     </div>
 
-                    <div className='create-election-candidate'>
-                        <label className="create-election-candidate-text">Candidate:</label>
+                    <div className="candidate">
+                        <label className="text">Candidate:</label>
                         <input type="text" name="candidate"/>
                     </div>
 

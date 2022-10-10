@@ -54,12 +54,9 @@ button {
   /* border: 1px red dotted; */
 }
 
-
-
 .new-election-button {
   padding: 25px;
 }
-
 
 .enter-code-form {
   padding: 10px;
@@ -77,40 +74,12 @@ button {
   padding-bottom: 10px;
 }
 
-.create-election-fields {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-  border: 1px red dotted;
-}
-
-.create-election-position {
-  padding: 10px;
-}
-
-
-.create-election-candidate {
-  padding: 10px;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-}
-
-.create-election-position-text {
-  font-size: 18px;
-  font-weight: 600;
-}
-
-.create-election-candidate-text {
-  font-size: 14px;
-}
-
 .icon-div{
   max-width: 400px;
 }
 
 .icon-div img{
+  background-color: transparent;
   width: 100%;
 }
 
@@ -120,25 +89,56 @@ button {
   align-items: center;
 }
 
-.electionCode {
+.create-election-fields {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  border: 1px red dotted;
+}
+
+.create-election-fields .position {
+  padding: 10px;
+}
+
+.create-election-fields .position .text {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.create-election-fields .candidate {
+  padding: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.create-election-fields .candidate .text {
+  font-size: 14px;
+}
+
+.election-code {
   background-color: white;
   border-radius: 18px;
   text-align: center;
   font-weight: 600;
   padding: 11px;
-  margin-bottom: 20px
 }
 
-.vote-count{
+.end-election{
   margin-top: 20px;
 }
 
-.winning{
+.winner-text{
   background-color: black;
   color: white;
   padding: 20px;
   border-radius: 20px;
   font-weight: 600;
   font-size: 22px;
+  margin-top: 20px;
+}
+
+.vote-count{
   margin-top: 20px;
 }
