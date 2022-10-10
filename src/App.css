@@ -68,19 +68,31 @@ button {
 
 }
 
-#join-with-code-text {
+.join-with-code-text {
   padding-bottom: 10px;
 }
 
-.createElectionFields {
+.create-election-fields {
   display: flex;
   flex-direction: column;
 }
 
-.createElectionField {
+.create-election-position {
   padding: 10px;
 }
 
-.createPositionField {
+.create-election-candidate-group {
   margin-left: 20px;
+}
+
+.create-election-candidate {
+  padding: 10px;
+}
+
+.create-election-position-text {
+  font-size: 18px;
+}
+
+.create-election-candidate-text {
+  font-size: 16px;
 }

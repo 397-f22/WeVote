@@ -8,39 +8,33 @@ import { Button } from "@mui/material";
 const CreateElection = (data) => {
     console.log(data);
 
-    const startElection = (event) => {
-        event.preventDefault(); // TODO: fix this!!
-        window.location.href = "/result";
-    }
-
     const AddCandidate = () => {
         console.log("added candidate")
-        return `
+        return 
         <div className='createElectionField'>
             <label className="CreateElectionFieldsText">Candidate:</label>
             <input type="text" name="candidate"/>
         </div>
-        `
     }
 
     return (    
         <div>
             <h1>WeVote</h1> 
             {/* ^^ replace with a navbar (topbar) that is consistents throughout pages */}
-            <form className='createElectionFields'>
-                <div className='createElectionField'>
-                    <label className="CreateElectionFieldsText">Position: </label>
+            <form className='create-election-fields'>
+                <div className='create-election-position'>
+                    <label className="create-election-position-text">Position: </label>
                     <input type="text" name="position"/>
                 </div>
 
-                <div className="createPositionField">
-                    <div className='createElectionField'>
-                        <label className="CreateElectionFieldsText">Candidate:</label>
+                <div className="create-election-candidate-group">
+                    <div className='create-election-candidate'>
+                        <label className="create-election-candidate-text">Candidate:</label>
                         <input type="text" name="candidate"/>
                     </div>
 
-                    <div className='createElectionField'>
-                        <label className="CreateElectionFieldsText">Candidate:</label>
+                    <div className='create-election-candidate'>
+                        <label className="create-election-candidate-text">Candidate:</label>
                         <input type="text" name="candidate"/>
                     </div>
 
@@ -48,7 +42,7 @@ const CreateElection = (data) => {
                 </div>
 
                 <button className="add-position m-1" >Add Position</button>
-                <button className="start-election m-1" onClick={startElection}>Start Election</button>
+                <button className="start-election m-1">Start Election</button>
             </form>
             
         </div>
