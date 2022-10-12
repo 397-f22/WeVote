@@ -16,6 +16,7 @@ const App = () => {
   if (!data) return <h1>No election data found</h1>;
 
   console.log(data);
+  
 
   return (
     <div className="container">      
