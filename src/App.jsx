@@ -5,16 +5,18 @@ import Voting from './components/Voting';
 import Homepage from './components/Homepage.jsx';
 import Result from './components/Result.jsx';
 import CreateElection from './components/CreateElection.jsx';
+import { useDbData } from "./utilities/firebase";
 
-
-const data = [
-  {
-    position: "President",
-    candidates: ["Sara", "Josh"]
-  }
-]
 
 const App = () => {
+  const [data, error] = useDbData('/');
+
+  if (error) return <h1>Error loading election data: {error.toString()}</h1>;
+  if (data === undefined) return <h1>Loading election data...</h1>;
+  if (!data) return <h1>No election data found</h1>;
+
+  console.log(data);
+
   return (
     <div className="container">      
 

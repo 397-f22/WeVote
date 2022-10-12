@@ -1,0 +1,8 @@
+{
+    "elections" : {
+        "1316": {
+            "position": "President",
+            "candidates": {"Sara": 10, "Josh": 30}
+        }
+    }
+}
