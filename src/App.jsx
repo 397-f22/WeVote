@@ -6,6 +6,7 @@ import Homepage from './components/Homepage.jsx';
 import Result from './components/Result.jsx';
 import CreateElection from './components/CreateElection.jsx';
 
+
 const data = [
   {
     position: "President",
