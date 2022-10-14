@@ -6,6 +6,7 @@ import Homepage from './components/Homepage.jsx';
 import Result from './components/Result.jsx';
 import CreateElection from './components/CreateElection.jsx';
 import { useDbData } from "./utilities/firebase";
+import NavBar from './components/NavBar';
 
 
 const App = () => {
@@ -17,10 +18,10 @@ const App = () => {
 
   console.log(data);
   
-
   return (
-    <div className="container">      
-
+    <div className="super-container">
+    <NavBar /> 
+    <div className="container">     
       <BrowserRouter>
         <Routes>
           <Route path="/" element={
@@ -51,6 +52,7 @@ const App = () => {
         </Routes>
       </BrowserRouter>
 
+    </div>
     </div>
   ); 
 };

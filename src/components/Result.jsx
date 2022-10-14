@@ -6,7 +6,6 @@ import Radio from '@mui/material/Radio';
 import { Button } from "@mui/material";
 import { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import WeVote from './WeVote';
 
 const Result = (data) => {
     const [voteCount, setVoteCount] = useState(0);
@@ -26,7 +25,6 @@ const Result = (data) => {
 
     return (    
         <div className="container">
-            <WeVote/>
             
             <div className="election-code">Code: 1316</div>
 

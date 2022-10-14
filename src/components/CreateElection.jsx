@@ -4,7 +4,6 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import FormLabel from '@mui/material/FormLabel';
 import Radio from '@mui/material/Radio';
 import { Button } from "@mui/material";
-import WeVote from './WeVote';
 
 const CreateElection = (data) => {
     console.log(data);
@@ -25,7 +24,6 @@ const CreateElection = (data) => {
 
     return (    
         <div className="create-election-container">
-            <WeVote style={{marginBottom: "20px"}}/>
             
             <form className="create-election-fields">
                 <div className="position">
