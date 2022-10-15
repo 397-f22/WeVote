@@ -4,7 +4,7 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import FormLabel from '@mui/material/FormLabel';
 import Radio from '@mui/material/Radio';
 import { Button } from "@mui/material";
-import { Position } from './classes';
+import { Position, Candidate } from './classes';
 import { useDbUpdate } from "../utilities/firebase";
 import { useState } from "react";
 
@@ -24,6 +24,10 @@ const CreateElection = (data) => {
         const positionsCopy = [...positions];
         setPositions([...positionsCopy.filter(pos => pos.role !== p.role), p]);
     };
+
+    // const updateCandidate = (event) => {
+    //     modifyPosition(p);
+    // }
 
     // const AddCandidate = () => {
     //     console.log("added candidate")
@@ -73,7 +77,28 @@ const CreateElection = (data) => {
                 </div> */}
 
                 {positions.map(p => 
-                    <div>{p.role}</div>
+                
+                    {
+                        
+
+                        return <div className="position">
+                        <div className="role">
+                            {p.role}
+                        </div>
+                        {p.candidates.map((c, i) => 
+                            {
+                                const updateCandidate = (event) => {
+                                    p.modifyCandidate(i, event.target.value)
+                                }
+
+                                return <div className="candidate">
+                                <p className="candidate-name">Candidate Name:</p>
+                                <input type="text" value={c.name} onChange={updateCandidate}></input>
+                            </div>})}
+
+                    
+                    </div>}
+
                 )}
 
                 <button className="btn btn-dark btn-rounded" style={{paddingRight:"100px", paddingLeft:"100px", marginBottom: "20px"}} >Add Position</button>
