@@ -1,6 +1,7 @@
 export class Position {
-    constructor(role) {
+    constructor(role, id) {
       this.role = role;
+      this.id = id;
       this.candidates = [new Candidate("")];
     }
 
@@ -8,8 +9,8 @@ export class Position {
       this.candidates[idx] = new Candidate(name);
     }
 
-    addCandidates() {
-        this.candidates.append(new Candidate("")); 
+    addCandidate() {
+        this.candidates.push(new Candidate("")); 
     }
 
   }

@@ -16,8 +16,8 @@ const CreateElection = (data) => {
     const [update, result] = useDbUpdate(`/elections/234`);
     const [positions, setPositions] = useState([new Position("President")]);
 
-    const addPosition = (p) => {
-        setPositions([...positions, p])
+    const addPosition = () => {
+        setPositions([...positions, new Position("")])
     };
 
     const modifyPosition = (p) => {
@@ -56,7 +56,7 @@ const CreateElection = (data) => {
     return (    
         <div className="create-election-container">
             
-            <form className="create-election-fields">
+            <div className="create-election-fields">
                 {/* <div className="position">
                     <label className="text">Position: </label>
                     <input type="text" name="position"/>
@@ -76,15 +76,24 @@ const CreateElection = (data) => {
                     <button className="btn btn-dark btn-rounded btn-sm" style={{marginBottom: "20px"}} onClick={AddCandidate}>Add Candidate</button>
                 </div> */}
 
+            
+
                 {positions.map(p => 
                 
                     {
-                        
+                        const addCandidate = () => {
+                            p.addCandidate()
+                            modifyPosition(p)
+                        }
 
                         return <div className="position" key={p}>
                         <div className="role">
                             {p.role}
                         </div>
+
+                        <p className="role-name">Role Name:</p>
+                        <input type="text" value={p.role} /*onChange={ NEED TO WRITE FUNCTION}*/></input>
+
                         {p.candidates.map((c, i) => 
                             {
                                 const updateCandidate = (event) => {
@@ -95,19 +104,18 @@ const CreateElection = (data) => {
                                 return <div className="candidate" key={c}>
                                 <p className="candidate-name">Candidate Name:</p>
                                 <input type="text" value={c.name} onChange={updateCandidate}></input>
-                                <button className="btn btn-dark btn-rounded" style={{paddingRight:"100px", paddingLeft:"100px", marginBottom: "20px"}} >Add Candidate</button>
                                 
                             </div>})}
-
-
+                        
+                            <button className="btn btn-dark btn-rounded" style={{paddingRight:"100px", paddingLeft:"100px", marginBottom: "20px"}} onClick={addCandidate} >Add Candidate</button>
                     
                     </div>}
 
                 )}
 
-                <button className="btn btn-dark btn-rounded" style={{paddingRight:"100px", paddingLeft:"100px", marginBottom: "20px"}} >Add Position</button>
+                <button className="btn btn-dark btn-rounded" style={{paddingRight:"100px", paddingLeft:"100px", marginBottom: "20px"}} onClick={addPosition} >Add Position</button>
                 <button className="btn btn-success btn-rounded btn-lg" onClick={GoToResult}>Start Election</button>
-            </form>
+            </div>
             
         </div>
     );
