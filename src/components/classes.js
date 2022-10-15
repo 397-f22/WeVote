@@ -8,6 +8,10 @@ export class Position {
       this.candidates[idx] = new Candidate(name);
     }
 
+    addCandidates() {
+        this.candidates.append(new Candidate("")); 
+    }
+
   }
 
 export class Candidate {

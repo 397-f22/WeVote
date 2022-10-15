@@ -81,7 +81,7 @@ const CreateElection = (data) => {
                     {
                         
 
-                        return <div className="position">
+                        return <div className="position" key={p}>
                         <div className="role">
                             {p.role}
                         </div>
@@ -89,12 +89,16 @@ const CreateElection = (data) => {
                             {
                                 const updateCandidate = (event) => {
                                     p.modifyCandidate(i, event.target.value)
+                                    modifyPosition(p)
                                 }
 
-                                return <div className="candidate">
+                                return <div className="candidate" key={c}>
                                 <p className="candidate-name">Candidate Name:</p>
                                 <input type="text" value={c.name} onChange={updateCandidate}></input>
+                                <button className="btn btn-dark btn-rounded" style={{paddingRight:"100px", paddingLeft:"100px", marginBottom: "20px"}} >Add Candidate</button>
+                                
                             </div>})}
+
 
                     
                     </div>}
