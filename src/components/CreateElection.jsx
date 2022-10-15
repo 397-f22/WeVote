@@ -4,9 +4,14 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import FormLabel from '@mui/material/FormLabel';
 import Radio from '@mui/material/Radio';
 import { Button } from "@mui/material";
+import { useDbUpdate } from "../utilities/firebase";
 
 const CreateElection = (data) => {
     console.log(data);
+    //TODO: The path below (/elections/234) is hard-coded, need to change to random code each time we create a new election
+    //This function can be used for writing database. If the path is a new one, it will create a new record in database. If not, it will update the existing record.
+    //Therfore it can be used for adding new item or updating item.
+    const [update, result] = useDbUpdate(`/elections/234`);
 
     const AddCandidate = () => {
         console.log("added candidate")
@@ -21,6 +26,16 @@ const CreateElection = (data) => {
         event.preventDefault();
         window.location.href = "/result";
     }
+
+    // Here is the example of how to call the update fuction defined above.
+    //TODO: need to change to values that users enter
+    const submit = (evt) => {
+        evt.preventDefault();
+        update({
+            "position": "President",
+            "candidates": {"Sara": 20, "Josh": 30}
+        });
+    };
 
     return (    
         <div className="create-election-container">

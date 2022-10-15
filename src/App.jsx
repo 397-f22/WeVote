@@ -33,7 +33,7 @@ const App = () => {
           </Route>
           <Route path="/voting" element={
             <div>
-              <Voting title={data[0]} />
+              <Voting title={data.elections["1316"]} />
             </div>
           } />
 
