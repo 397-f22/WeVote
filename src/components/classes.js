@@ -5,6 +5,10 @@ export class Position {
       this.candidates = [new Candidate("")];
     }
 
+    modifyRole(role) {
+      this.role = role;
+    }
+
     modifyCandidate(idx, name) {
       this.candidates[idx] = new Candidate(name);
     }
@@ -12,7 +16,6 @@ export class Position {
     addCandidate() {
         this.candidates.push(new Candidate("")); 
     }
-
   }
 
 export class Candidate {

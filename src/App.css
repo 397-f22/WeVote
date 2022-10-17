@@ -101,9 +101,13 @@ button {
   padding: 10px;
 }
 
-.create-election-fields .position .text {
+.create-election-fields .position .role-name {
   font-size: 18px;
   font-weight: 600;
+}
+
+.create-election-fields .position .input {
+  border-radius: 5px;
 }
 
 .create-election-fields .candidate {
@@ -113,7 +117,12 @@ button {
   justify-content: space-between;
 }
 
-.create-election-fields .candidate .text {
+.create-election-fields .candidate .input {
+  height: 28px;
+  border-radius: 5px;
+}
+
+.create-election-fields .candidate .candidate-name {
   font-size: 14px;
 }
 
