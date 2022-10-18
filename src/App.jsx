@@ -15,6 +15,18 @@ const ElectionForUrl = ({data}) => {
   return <CreateElection id={id} data={data} />;
 };
 
+const ResultForUrl = ({data}) => {
+  const { id } = useParams();
+
+  return <Result id={id} data={data} />;
+};
+
+const VotingForUrl = ({data}) => {
+  const { id } = useParams();
+
+  return <Voting id={id} data={data} />;
+};
+
 const App = () => {
   const [data, error] = useDbData('/');
   const [electionRunning, setElectionRunning] = useState(true);
@@ -40,9 +52,9 @@ const App = () => {
           }>
 
           </Route>
-          <Route path="/voting" element={
+          <Route path="/voting/:id" element={
             <div>
-              <Voting title={data.elections["1316"]} />
+              <VotingForUrl data={data} title={data.elections["1316"]} />
             </div>
           } />
 
@@ -52,13 +64,13 @@ const App = () => {
             </div>
           } />
 
-          <Route path="/result" element={
+          <Route path="/result/:id" element={
             <div>
-              <Result electionRunning={electionRunning} voteCount={voteCount} winner={winner} setElectionRunning={setElectionRunning}/>
+              <ResultForUrl data={data} electionRunning={electionRunning} voteCount={voteCount} winner={winner} setElectionRunning={setElectionRunning}/>
             </div>
           }/>
 
-          <Route path="/result_voter" element={
+          <Route path="/result_voter/:id" element={
             <div>
               <Result_Voter electionRunning={electionRunning} voteCount={voteCount} winner={winner}/>
             </div>

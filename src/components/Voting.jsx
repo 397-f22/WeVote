@@ -5,15 +5,14 @@ import FormLabel from '@mui/material/FormLabel';
 import Radio from '@mui/material/Radio';
 import { Button } from "@mui/material";
 
-const Voting = (data) => {
-    console.log(data);
+const Voting = (props) => {
     const goToResult = (event) => {
         window.location.href = "/result_voter";
     };
 
     return (    
         <div>
-            <h1>Position: {data.title.position}</h1>
+            <h1>Position: {props.data.elections[props.id].position}</h1>
 
             <div>
                 <FormControl>
@@ -23,11 +22,11 @@ const Voting = (data) => {
                         name="radio-buttons-group"
                     >
                         {
-                            Object.values(data.title.candidates).map((candidate) =>
+                            props.data.elections[props.id].candidates.map((candidate) =>
                             {
                                 console.log(candidate);
                                 return (
-                                    <FormControlLabel key={candidate} value={candidate} control={<Radio />} label={candidate} />
+                                    <FormControlLabel key={candidate.name} value={candidate.name} control={<Radio />} label={candidate.name} />
                                 )
                             })
                         }

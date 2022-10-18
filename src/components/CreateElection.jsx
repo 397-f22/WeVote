@@ -39,6 +39,7 @@ const CreateElection = (data) => {
     const submit = (evt) => {
         evt.preventDefault();
         update({
+            "election_running": true,
             "position": positions[0].role,
             "candidates": positions[0].candidates
         });
