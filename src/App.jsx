@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route, useParams } from "react-router-dom";
 import Voting from './components/Voting';
 import Homepage from './components/Homepage.jsx';
 import Result from './components/Result.jsx';
+import Result_Voter from './components/Result_Voter.jsx';
 import CreateElection from './components/CreateElection.jsx';
 import { useDbData } from "./utilities/firebase";
 import NavBar from './components/NavBar';
@@ -16,6 +17,9 @@ const ElectionForUrl = ({data}) => {
 
 const App = () => {
   const [data, error] = useDbData('/');
+  const [electionRunning, setElectionRunning] = useState(true);
+  const [winner, setWinner] = useState("");
+  const [voteCount, setVoteCount] = useState(0);
 
   if (error) return <h1>Error loading election data: {error.toString()}</h1>;
   if (data === undefined) return <h1>Loading election data...</h1>;
@@ -50,7 +54,13 @@ const App = () => {
 
           <Route path="/result" element={
             <div>
-              <Result />
+              <Result electionRunning={electionRunning} voteCount={voteCount} winner={winner} setElectionRunning={setElectionRunning}/>
+            </div>
+          }/>
+
+          <Route path="/result_voter" element={
+            <div>
+              <Result_Voter electionRunning={electionRunning} voteCount={voteCount} winner={winner}/>
             </div>
           }/>
 
