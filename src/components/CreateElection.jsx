@@ -87,9 +87,11 @@ const CreateElection = (data) => {
                         </div>}
                 )}
 
-                <button className="btn btn-dark btn-rounded"
+                
+                {/* <button className="btn btn-dark btn-rounded"
                         style={addPositionButtonStyle}
-                        onClick={addPosition}>Add Position</button>
+                        onClick={addPosition}>Add Position</button> */}
+                
                 <button className="btn btn-success btn-rounded btn-lg"
                         onClick={GoToResult}>Start Election</button>
             </div>
