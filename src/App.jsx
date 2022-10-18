@@ -8,6 +8,11 @@ import CreateElection from './components/CreateElection.jsx';
 import { useDbData } from "./utilities/firebase";
 import NavBar from './components/NavBar';
 
+const ElectionForUrl = ({data}) => {
+  const { id } = useParams();
+
+  return <CreateElection id={id} data={data} />;
+};
 
 const App = () => {
   const [data, error] = useDbData('/');
@@ -37,9 +42,9 @@ const App = () => {
             </div>
           } />
 
-          <Route path="/create-election" element={
+          <Route path="/create-election/:id" element={
             <div>
-              <CreateElection />
+              <ElectionForUrl data={data} />
             </div>
           } />
 

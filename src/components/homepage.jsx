@@ -7,7 +7,8 @@ const Homepage = () => {
   }
 
   const goToElection = () => {
-    window.location.href = "/create-election";
+    var val = Math.floor(1000 + Math.random() * 9000);
+    window.location.href = "/create-election/" + val;
   }
 
   return( 

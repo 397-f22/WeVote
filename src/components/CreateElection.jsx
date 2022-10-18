@@ -13,7 +13,8 @@ const CreateElection = (data) => {
     //TODO: The path below (/elections/234) is hard-coded, need to change to random code each time we create a new election
     //This function can be used for writing database. If the path is a new one, it will create a new record in database. If not, it will update the existing record.
     //Therfore it can be used for adding new item or updating item.
-    const [update, result] = useDbUpdate(`/elections/234`);
+
+    const [update, result] = useDbUpdate(`/elections/${data.id}`);
     const [newPositionId, setNewPositionId] = useState(0)
     const [positions, setPositions] = useState([new Position("", newPositionId)]);
 
@@ -25,6 +26,7 @@ const CreateElection = (data) => {
     const modifyPosition = (p) => {
         const positionsCopy = [...positions];
         setPositions([...positionsCopy.filter(pos => pos.role !== p.role), p]);
+        console.log(positions)
     };
 
     const GoToResult = (event) => {
@@ -37,8 +39,8 @@ const CreateElection = (data) => {
     const submit = (evt) => {
         evt.preventDefault();
         update({
-            "position": "President",
-            "candidates": {"Sara": 20, "Josh": 30}
+            "position": positions[0].role,
+            "candidates": positions[0].candidates
         });
     };
 
@@ -93,7 +95,7 @@ const CreateElection = (data) => {
                         onClick={addPosition}>Add Position</button> */}
                 
                 <button className="btn btn-success btn-rounded btn-lg"
-                        onClick={GoToResult}>Start Election</button>
+                        onClick={submit}>Start Election</button>
             </div>
         </div>
     );
