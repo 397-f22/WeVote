@@ -8,7 +8,7 @@ import { Button } from "@mui/material";
 const Voting = (data) => {
     console.log(data);
     const goToResult = (event) => {
-        window.location.href = "/result";
+        window.location.href = "/result_voter";
     };
 
     return (    
