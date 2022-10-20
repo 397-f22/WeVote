@@ -10,17 +10,26 @@ const Voting = (props) => {
     const [selectedCandidate, setSelectedCandidate] = useState(0); //index
     
     const voteWrap = (props) => {
-            window.location.href = "/result_voter";
-            console.log("Hello Vote Wrap!");
-            // const [update, result] = useDbUpdate(`/elections/${data.id}/${candidate}`);
-            // const submitVote = (evt) => {
-            //     evt.preventDefault();
-            //     update({
-            //         "election_running": true,
-            //         "position": positions[0].role,
-            //         "candidates": positions[0].candidates
-            //     });
-            // };
+            
+        
+
+        
+        // event.preventDefault();
+        console.log(props.id);
+        window.location.href = `/result_voter/${props.id}`;
+
+
+            // console.log("Hello Vote Wrap!");
+
+        const [update, result] = useDbUpdate(`/elections/${props.id}/candidates/${selectedCandidate}`);
+        const submitVote = (evt) => {
+            evt.preventDefault();
+            update({
+                "voteCount": 2
+            });
+        };
+    
+        submitVote();
         
         
         }
@@ -67,7 +76,7 @@ const Voting = (props) => {
                         border: "2px solid !important",
                         borderRadius: "20px!important",
                     }}
-                    onClick={voteWrap}> Cast Vote </Button>
+                    onClick={() => voteWrap(props)}> Cast Vote </Button>
             </div>
 
             
