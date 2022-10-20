@@ -6,10 +6,23 @@ import Radio from '@mui/material/Radio';
 import { Button } from "@mui/material";
 
 const Voting = (props) => {
-    const goToResult = (event) => {
-        window.location.href = "/result_voter";
-    };
-
+    selectedCandidate = 0;
+    
+    const voteWrap = (props) => {
+            window.location.href = "/result_voter";
+            console.log("Hello Vote Wrap!");
+            // const [update, result] = useDbUpdate(`/elections/${data.id}/${candidate}`);
+            // const submitVote = (evt) => {
+            //     evt.preventDefault();
+            //     update({
+            //         "election_running": true,
+            //         "position": positions[0].role,
+            //         "candidates": positions[0].candidates
+            //     });
+            // };
+        
+        
+        }
     return (    
         <div>
             <h1>Position: {props.data.elections[props.id].position}</h1>
@@ -43,7 +56,7 @@ const Voting = (props) => {
                         border: "2px solid !important",
                         borderRadius: "20px!important",
                     }}
-                    onClick={goToResult}> Cast Vote </Button>
+                    onClick={voteWrap}> Cast Vote </Button>
             </div>
 
             
