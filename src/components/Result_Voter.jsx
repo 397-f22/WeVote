@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { PieChart } from 'react-minimal-pie-chart'
 
 const findWinnerMajorityVote = (data, id) => {
     const candidates = data.elections[id].candidates;
@@ -43,11 +44,32 @@ const Result = (props) => {
             <h1 style={{marginTop: "10px"}}>Thank you for voting!</h1>
 
             {!props.data.elections[props.id].election_running &&
-             <div className="winner-text">Winner is {findWinnerMajorityVote(props.data, props.id)}</div>}
-
+             <div className="winner-text">Winner is {findWinnerMajorityVote(props.data, props.id)}</div> &&
+            <PieChart //Source: https://www.npmjs.com/package/react-minimal-pie-chart
+                data={piechartResultsData(props.data.elections[props.id].candidates)}
+                label={({ dataEntry }) => dataEntry.title}
+                labelStyle={{...defaultLabelStyle,}}
+            />
+            }
             <div className="vote-count">Total Votes: {getVoteCount(props.data.elections[props.id])}</div>            
         </div>
     );
 }
   
 export default Result;
+
+
+//input props.data.elections[props.id].candidates to this function
+const piechartResultsData = (candidate_list) => {
+    return candidate_list.map((el) => ({title: el.name, value: el.voteCount, color: random_hex_color_code(), label:"AAAAAA"}))
+}
+
+const random_hex_color_code = () => {
+    let n = (Math.random() * 0xfffff * 1000000).toString(16);
+    return '#' + n.slice(0, 6);
+};
+
+const defaultLabelStyle = {
+    fontSize: '5px',
+    fontFamily: 'sans-serif',
+  };
