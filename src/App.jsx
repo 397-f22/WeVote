@@ -21,6 +21,12 @@ const ResultForUrl = ({data}) => {
   return <Result id={id} data={data} />;
 };
 
+const ResultVoterForUrl = ({data}) => {
+  const { id } = useParams();
+
+  return <Result_Voter id={id} data={data} />;
+};
+
 const VotingForUrl = ({data}) => {
   const { id } = useParams();
 
@@ -66,13 +72,13 @@ const App = () => {
 
           <Route path="/result/:id" element={
             <div>
-              <ResultForUrl data={data} setElectionRunning={setElectionRunning}/>
+              <ResultForUrl data={data}/>
             </div>
           }/>
 
           <Route path="/result_voter/:id" element={
             <div>
-              <Result_Voter electionRunning={electionRunning} voteCount={voteCount} winner={winner}/>
+              <ResultVoterForUrl data={data}/>
             </div>
           }/>
 

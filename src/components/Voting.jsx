@@ -12,23 +12,14 @@ const Voting = (props) => {
     const [update, result] = useDbUpdate(`/elections/${props.id}/candidates/${selectedCandidate}`);
     
     const voteWrap = () => {
+        console.log("selectedCandidate", selectedCandidate);
+        var selectedCandidateVoteCount = props.data.elections[props.id].candidates[selectedCandidate].voteCount + 1;
             
-            console.log("selectedCandidate", selectedCandidate);
-            var selectedCandidateVoteCount = props.data.elections[props.id].candidates[selectedCandidate].voteCount + 1;
-            
-            update({
-                "voteCount": selectedCandidateVoteCount
-            });
-            window.location.href = `/result_voter/${props.id}`;
-            // const submitVote = (evt) => {
-            //     evt.preventDefault();
-            //     update({
-            //         "election_running": true,
-            //         "position": positions[0].role,
-            //         "candidates": positions[0].candidates
-            //     });
-            // };
-        }
+        update({
+            "voteCount": selectedCandidateVoteCount
+        });
+        window.location.href = `/result_voter/${props.id}`;
+    }
 
     const radioButtonPressed = (idx) => {
         setSelectedCandidate(idx)
@@ -37,45 +28,46 @@ const Voting = (props) => {
 
     return (    
         <div>
-            <h1>Position: {props.data.elections[props.id].position}</h1>
-
+            {props.data.elections[props.id].election_running ? 
             <div>
-                <FormControl>
-                    <FormLabel id="demo-radio-buttons-group-label">Candidate</FormLabel>
-                    <RadioGroup
-                        aria-labelledby="demo-radio-buttons-group-label"
-                        name="radio-buttons-group"
-                    >
-                        {
-                            props.data.elections[props.id].candidates.map((candidate, idx) =>
+                <h1>Position: {props.data.elections[props.id].position}</h1>
+
+                <div>
+                    <FormControl>
+                        <FormLabel id="demo-radio-buttons-group-label">Candidate</FormLabel>
+                        <RadioGroup
+                            aria-labelledby="demo-radio-buttons-group-label"
+                            name="radio-buttons-group"
+                        >
                             {
-                                // console.log(candidate);
-                                return (
-                                    <FormControlLabel key={candidate.name} 
-                                                      value={candidate.name} 
-                                                      control={<Radio />} 
-                                                      label={candidate.name}
-                                                      onChange={() => radioButtonPressed(idx)} />
-                                )
-                            })
-                        }
-                    </RadioGroup>
-                </FormControl>
-            </div>
+                                props.data.elections[props.id].candidates.map((candidate, idx) =>
+                                {
+                                    // console.log(candidate);
+                                    return (
+                                        <FormControlLabel key={candidate.name} 
+                                                        value={candidate.name} 
+                                                        control={<Radio />} 
+                                                        label={candidate.name}
+                                                        onChange={() => radioButtonPressed(idx)} />
+                                    )
+                                })
+                            }
+                        </RadioGroup>
+                    </FormControl>
+                </div>
 
-            <div>
-                <Button
-                    variant="outlined" size="large"
-                    sx={{
-                        width: "60%",
-                        color: "black",
-                        border: "2px solid !important",
-                        borderRadius: "20px!important",
-                    }}
-                    onClick={() => voteWrap(props)}> Cast Vote </Button>
-            </div>
-
-            
+                <div>
+                    <Button
+                        variant="outlined" size="large"
+                        sx={{
+                            width: "60%",
+                            color: "black",
+                            border: "2px solid !important",
+                            borderRadius: "20px!important",
+                        }}
+                        onClick={() => voteWrap(props)}> Cast Vote </Button>
+                </div>
+            </div> : <h1>THE ELECTION IS CLOSED</h1>} 
         </div>
     );
 }

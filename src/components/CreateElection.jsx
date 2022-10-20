@@ -8,13 +8,12 @@ import { Position, Candidate } from './classes';
 import { useDbUpdate } from "../utilities/firebase";
 import { useState } from "react";
 
-const CreateElection = (data) => {
-    console.log(data);
+const CreateElection = (props) => {
     //TODO: The path below (/elections/234) is hard-coded, need to change to random code each time we create a new election
     //This function can be used for writing database. If the path is a new one, it will create a new record in database. If not, it will update the existing record.
     //Therfore it can be used for adding new item or updating item.
 
-    const [update, result] = useDbUpdate(`/elections/${data.id}`);
+    const [update, result] = useDbUpdate(`/elections/${props.id}`);
     const [newPositionId, setNewPositionId] = useState(0)
     const [positions, setPositions] = useState([new Position("", newPositionId)]);
 
@@ -29,20 +28,19 @@ const CreateElection = (data) => {
         console.log(positions)
     };
 
-    const GoToResult = (event) => {
-        event.preventDefault();
-        window.location.href = "/result";
+    const GoToResult = (id) => {
+        window.location.href = `/result/${id}`;
     };
 
     // Here is the example of how to call the update fuction defined above.
     //TODO: need to change to values that users enter
-    const submit = (evt) => {
-        evt.preventDefault();
+    const submit = (id) => {
         update({
             "election_running": true,
             "position": positions[0].role,
             "candidates": positions[0].candidates
         });
+        GoToResult(id);
     };
 
     
@@ -78,7 +76,7 @@ const CreateElection = (data) => {
                                         modifyPosition(p);
                                     };
 
-                                    return <div className="candidate" key={c}>
+                                    return <div className="candidate" key={i}>
                                         <p className="candidate-name">Candidate Name:</p>
                                         <input type="text" className="input" value={c.name} onChange={updateCandidate}/>
                                     </div>
@@ -96,7 +94,7 @@ const CreateElection = (data) => {
                         onClick={addPosition}>Add Position</button> */}
                 
                 <button className="btn btn-success btn-rounded btn-lg"
-                        onClick={submit}>Start Election</button>
+                        onClick={() => submit(props.id)}>Start Election</button>
             </div>
         </div>
     );
