@@ -4,9 +4,10 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import FormLabel from '@mui/material/FormLabel';
 import Radio from '@mui/material/Radio';
 import { Button } from "@mui/material";
+import { useState } from "react";
 
 const Voting = (props) => {
-    selectedCandidate = 0;
+    const [selectedCandidate, setSelectedCandidate] = useState(0); //index
     
     const voteWrap = (props) => {
             window.location.href = "/result_voter";
@@ -23,6 +24,12 @@ const Voting = (props) => {
         
         
         }
+
+    const radioButtonPressed = (idx) => {
+        setSelectedCandidate(idx)
+        console.log("THE INDEX IS", idx, "STATE IS", selectedCandidate)
+    }
+
     return (    
         <div>
             <h1>Position: {props.data.elections[props.id].position}</h1>
@@ -35,11 +42,15 @@ const Voting = (props) => {
                         name="radio-buttons-group"
                     >
                         {
-                            props.data.elections[props.id].candidates.map((candidate) =>
+                            props.data.elections[props.id].candidates.map((candidate, idx) =>
                             {
                                 console.log(candidate);
                                 return (
-                                    <FormControlLabel key={candidate.name} value={candidate.name} control={<Radio />} label={candidate.name} />
+                                    <FormControlLabel key={candidate.name} 
+                                                      value={candidate.name} 
+                                                      control={<Radio />} 
+                                                      label={candidate.name}
+                                                      onChange={() => radioButtonPressed(idx)} />
                                 )
                             })
                         }
