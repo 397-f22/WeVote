@@ -1,14 +1,20 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
-
+import { useState } from 'react';
 
 const Homepage = () => {
+  const [joinId, setJoinId] = useState("");
+  
   const goToVoting = () => {
-    window.location.href = "/voting";
+    window.location.href = "/voting/"+joinId;
   }
 
   const goToElection = () => {
     var val = Math.floor(1000 + Math.random() * 9000);
     window.location.href = "/create-election/" + val;
+  }
+
+  const updateJoinId = (event) => {
+    setJoinId(event.target.value);
   }
 
   return( 
@@ -23,7 +29,7 @@ const Homepage = () => {
 
           <div className="join-with-code-field">
             <label id="join-with-code-text" for="fname">Join With Code:</label>
-            <input type="text" id="code" name="code"/>
+            <input type="text" id="code" name="code" value={joinId} onChange={updateJoinId}/>
           </div>
 
           <div className="join-with-code-btn" style={{marginTop: "10px"}}>
