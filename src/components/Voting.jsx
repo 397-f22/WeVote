@@ -5,33 +5,29 @@ import FormLabel from '@mui/material/FormLabel';
 import Radio from '@mui/material/Radio';
 import { Button } from "@mui/material";
 import { useState } from "react";
+import { useDbUpdate } from "../utilities/firebase";
 
 const Voting = (props) => {
     const [selectedCandidate, setSelectedCandidate] = useState(0); //index
+    const [update, result] = useDbUpdate(`/elections/${props.id}/candidates/${selectedCandidate}`);
     
-    const voteWrap = (props) => {
-            
-        
+    const voteWrap = () => {
+            // window.location.href = "/result_voter";
+            console.log("selectedCandidate", selectedCandidate);
+            var selectedCandidateVoteCount = props.data.elections[props.id].candidates[selectedCandidate].voteCount + 1;
 
-        
-        // event.preventDefault();
-        console.log(props.id);
-        window.location.href = `/result_voter/${props.id}`;
-
-
-            // console.log("Hello Vote Wrap!");
-
-        const [update, result] = useDbUpdate(`/elections/${props.id}/candidates/${selectedCandidate}`);
-        const submitVote = (evt) => {
-            evt.preventDefault();
             update({
-                "voteCount": 2
+                "voteCount": selectedCandidateVoteCount
             });
-        };
-    
-        submitVote();
-        
-        
+
+            // const submitVote = (evt) => {
+            //     evt.preventDefault();
+            //     update({
+            //         "election_running": true,
+            //         "position": positions[0].role,
+            //         "candidates": positions[0].candidates
+            //     });
+            // };
         }
 
     const radioButtonPressed = (idx) => {
@@ -53,7 +49,7 @@ const Voting = (props) => {
                         {
                             props.data.elections[props.id].candidates.map((candidate, idx) =>
                             {
-                                console.log(candidate);
+                                // console.log(candidate);
                                 return (
                                     <FormControlLabel key={candidate.name} 
                                                       value={candidate.name} 
