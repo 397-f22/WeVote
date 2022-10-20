@@ -66,7 +66,7 @@ const App = () => {
 
           <Route path="/result/:id" element={
             <div>
-              <ResultForUrl data={data} electionRunning={electionRunning} voteCount={voteCount} winner={winner} setElectionRunning={setElectionRunning}/>
+              <ResultForUrl data={data} setElectionRunning={setElectionRunning}/>
             </div>
           }/>
 

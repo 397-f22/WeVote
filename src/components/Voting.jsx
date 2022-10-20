@@ -15,7 +15,7 @@ const Voting = (props) => {
             
             console.log("selectedCandidate", selectedCandidate);
             var selectedCandidateVoteCount = props.data.elections[props.id].candidates[selectedCandidate].voteCount + 1;
-
+            
             update({
                 "voteCount": selectedCandidateVoteCount
             });
