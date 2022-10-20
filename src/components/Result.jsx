@@ -1,4 +1,7 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { useState } from "react";
+import { useDbUpdate } from "../utilities/firebase";
+
 
 
 
@@ -39,8 +42,14 @@ const getVoteCount = (data) => {
 
 
 const Result = (props) => {
+    const [update, result] = useDbUpdate(`/elections/${props.id}`);
     const handleChange = (event) => {
-        props.setElectionRunning(false);
+
+        update(
+            {
+                "election_running" : false
+            }
+        )
     };
 
     return (    
@@ -49,7 +58,7 @@ const Result = (props) => {
             <div className="election-code">Code: {props.id}</div>
 
             {!props.data.electionRunning ? <button type="button" className="btn btn-danger btn-rounded" style={{marginTop: "20px"}} onClick={handleChange}>End Election</button> :
-             <div className="winner-text">Winner is {props.winner}</div>}
+             <div className="winner-text">Winner is {() => findWinnerMajorityVote(props.data)}</div>}
 
             <div className="vote-count">Total Votes: {getVoteCount(props.data.elections[props.id])}</div>            
         </div>

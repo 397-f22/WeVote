@@ -12,14 +12,14 @@ const Voting = (props) => {
     const [update, result] = useDbUpdate(`/elections/${props.id}/candidates/${selectedCandidate}`);
     
     const voteWrap = () => {
-            // window.location.href = "/result_voter";
+            
             console.log("selectedCandidate", selectedCandidate);
             var selectedCandidateVoteCount = props.data.elections[props.id].candidates[selectedCandidate].voteCount + 1;
 
             update({
                 "voteCount": selectedCandidateVoteCount
             });
-
+            window.location.href = `/result_voter/${props.id}`;
             // const submitVote = (evt) => {
             //     evt.preventDefault();
             //     update({
