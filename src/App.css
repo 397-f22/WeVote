@@ -93,8 +93,6 @@ button {
   display: flex;
   flex-direction: column;
   align-items: center;
-
-  border: 1px red dotted;
 }
 
 .create-election-fields .position {
@@ -104,10 +102,12 @@ button {
 .create-election-fields .position .role-name {
   font-size: 18px;
   font-weight: 600;
+  margin-bottom: 5px
 }
 
 .create-election-fields .position .input {
   border-radius: 5px;
+  margin-bottom: 5px;
 }
 
 .create-election-fields .candidate {
@@ -124,6 +124,7 @@ button {
 
 .create-election-fields .candidate .candidate-name {
   font-size: 14px;
+  margin-right: 10px;
 }
 
 .election-code {
