@@ -1,6 +1,7 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useState } from "react";
 import { useDbUpdate } from "../utilities/firebase";
+import { PieChart } from 'react-minimal-pie-chart' //Source: https://www.npmjs.com/package/react-minimal-pie-chart
 
 
 
@@ -56,8 +57,18 @@ const Result = (props) => {
             
             <div className="election-code">Code: {props.id}</div>
 
-            {props.data.elections[props.id].election_running ? <button type="button" className="btn btn-danger btn-rounded" style={{marginTop: "20px"}} onClick={handleChange}>End Election</button> :
-             <div className="winner-text">Winner is {findWinnerMajorityVote(props.data, props.id)}</div>}
+            {props.data.elections[props.id].election_running 
+            ? <button type="button" className="btn btn-danger btn-rounded" style={{marginTop: "20px"}} onClick={handleChange}>End Election</button> 
+            : <div>
+                <div className="winner-text">Winner is {findWinnerMajorityVote(props.data, props.id)}</div>
+                <br></br>
+                <PieChart 
+                    data={piechartResultsData(props.data.elections[props.id].candidates)}
+                    label={({ dataEntry }) => `${dataEntry.title}: ${dataEntry.value}`}
+                    labelStyle={{...defaultLabelStyle,}}
+                />
+              </div>
+            }
 
             <div className="vote-count">Total Votes: {getVoteCount(props.data.elections[props.id])}</div>            
         </div>
@@ -65,3 +76,19 @@ const Result = (props) => {
 }
   
 export default Result;
+
+
+// All this is duplicated from result_voter, didnt have time to make a contained component sorry
+const piechartResultsData = (candidate_list) => {
+    return candidate_list.map((el) => ({title: el.name, value: el.voteCount, color: random_hex_color_code(), label:"AAAAAA"}))
+}
+
+const random_hex_color_code = () => {
+    let n = (Math.random() * 0xfffff * 1000000).toString(16);
+    return '#' + n.slice(0, 6);
+};
+
+const defaultLabelStyle = {
+    fontSize: '5px',
+    fontFamily: 'sans-serif',
+  };

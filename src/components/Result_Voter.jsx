@@ -47,7 +47,7 @@ const Result = (props) => {
              <div className="winner-text">Winner is {findWinnerMajorityVote(props.data, props.id)}</div> &&
             <PieChart //Source: https://www.npmjs.com/package/react-minimal-pie-chart
                 data={piechartResultsData(props.data.elections[props.id].candidates)}
-                label={({ dataEntry }) => dataEntry.title}
+                label={({ dataEntry }) => `${dataEntry.title}: ${dataEntry.value}`}
                 labelStyle={{...defaultLabelStyle,}}
             />
             }
